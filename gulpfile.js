@@ -11,8 +11,8 @@ var data = require('gulp-data');
 var path = require('path');
 var jaden = require('jade');
 var fs = require('fs');
-var filename = ['./*.scss'];
-var filename2 = ['./car/*.scss'];
+var filename = ['./scss/*.scss'];
+var filename2 = ['./scss/*.scss'];
 var sourcemaps = require('gulp-sourcemaps');
 var babel = require("gulp-babel");
 var browserify = require('browserify');
@@ -27,7 +27,7 @@ filters.some = function (block) {
 gulp.task('sass', function() {
   return sass(filename2, {sourcemap:true,style: 'expanded',compass: true})
     .pipe(sourcemaps.write())    
-        .pipe(gulp.dest('./car/css'));
+        .pipe(gulp.dest('./app/css'));
 });
 
 
@@ -91,14 +91,15 @@ gulp.task('json-temp', function() {
 
 
 gulp.task('babel', function() {
-  gulp.src('./src/_*.js')
+  gulp.src('./es6/*.js')
     .pipe(plumber())
     .pipe(babel())
-    .pipe(gulp.dest('./app/dest/'))
+    .pipe(gulp.dest('./app/js/'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/_*.js', ['babel'])
+  gulp.watch('./es6/*.js', ['babel'])
+  gulp.watch('./scss/*.scss', ['sass'])
 });
 
-gulp.task('default', ['babel', 'watch']);
+gulp.task('default', ['watch']);

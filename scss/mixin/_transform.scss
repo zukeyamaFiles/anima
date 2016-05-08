@@ -1,0 +1,72 @@
+$set-prefix:  -webkit- , -moz- , -ms- , '';
+
+@mixin PropertySetPrefix($name, $value) {
+ 
+    @each $prefix in $set-prefix {
+ 
+        #{$prefix}#{$name}: $value;
+
+    }
+ 
+}
+
+@mixin preserve_3d() {
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+       -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@mixin cubic($num1:0.215,$num2:0.610,$num3:0.355,$num4:1.000) {
+  -webkit-animation-timing-function: cubic-bezier($num1, $num2, $num3, $num4);
+  -moz-animation-timing-function: cubic-bezier($num1, $num2, $num3, $num4);
+  -ms-animation-timing-function: cubic-bezier($num1, $num2, $num3, $num4); 
+  animation-timing-function: cubic-bezier($num1, $num2, $num3, $num4);
+}
+
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+   @-ms-keyframes #{$animation-name} {
+    @content;
+  }  
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration, $timing, $delay, $count, $direction: null) {
+  @each $prefix in $prefixes {
+      #{$prefix}#{animation}: $name $duration $timing $delay $count $direction;
+  }
+}
+
+@mixin trans_origin($num:left,$num2:top) {  
+  -webkit-transform-origin: #{$num} #{$num2};
+  -moz-transform-origin: #{$num} #{$num2};
+  -ms-transform-origin: #{$num} #{$num2};
+  transform-origin: #{$num} #{$num2};
+}
+
+@mixin icon_left($miki,$num) {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: $miki;
+	margin-top: $num;
+}
+
+@mixin icon_right($miki,$num) {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: #{$miki};
+	margin-top: #{$num};
+}
