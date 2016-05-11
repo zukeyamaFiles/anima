@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<link rel="stylesheet" href="../css/flax.css">
+<script src="../js/jquery.js"></script>
+<script>
+	
+
+
+
+
+$(function(){
+var or = $(".box").eq(3).css("order");
+
+
+
+
+
+$(document).on("click",function(){
+
+
+$(".box").eq(1).css("order",1);
+
+$(".box").eq(1)[0].style
+
+console.log($(".box").eq(1)[0].style)
+
+//$(".box").eq(0).addClass("add");
+
+var el = $(".box")[0];
+
+//var elem1 = document.getElementById("elemId");
+var style = window.getComputedStyle(el, null);
+
+//$("#wrap").eq(0)[0].style["flex-direction"] = "row";
+$("#wrap").addClass("add");
+})
+
+var timer,s;
+
+s = Date.now();
+var Timertxt = $("#ti")[0];
+function update(dobble){
+
+timer = setTimeout(function(){
+
+var t = Date.now() - s;
+	Timertxt.textContent = (t/1000).toFixed(dobble);
+	update(dobble);
+},10);
+
+
+
+}
+
+
+
+update(1);
+
+})
+
+
+</script>
+
+</head>
+<body>
+
+<div id="wrap">
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</div>
+<!-- /#wrap -->
+
+
+
+
+<p id="ti"></p>
+
+</body>
+</html>

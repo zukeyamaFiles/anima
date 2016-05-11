@@ -81,6 +81,16 @@ html,body {
   }
 }
 
+#timerTxt {
+  position: absolute;
+  left: 20px;
+  top: 50px;
+  font-size: 40px;
+}
+
+.restart {
+  display: none;
+}
 
 @include keyframes (opaci) {
   from, 50%, to {

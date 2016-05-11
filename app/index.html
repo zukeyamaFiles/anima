@@ -3,14 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-  
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
 
-
-
+<audio id="sound-file" preload="auto">
+	<source src="./audio/btn.mp3" type="audio/mp3">
+</audio>
+<p id="timerTxt"></p>
+<!-- /#timerTxt -->
 
 <div class="container">
 	<div id="stage">
@@ -33,7 +36,9 @@
 <div id="overlay">
 	<div class="inner">
 		<p class="btn">ゲームスタート！</p>
-		<p class="time">あなたのタイムは<span class="clearTime"></span>秒です！</p>
+
+		<p class="restart">もう一度</p>
+
 	</div>
 	<!-- /.inner -->
 </div>
