@@ -3,50 +3,42 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<link rel="stylesheet" href="./css/style.css">
-
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
-<audio id="sound-file" preload="auto">
-	<source src="./audio/btn.mp3" type="audio/mp3">
-</audio>
+
 <p id="timerTxt"></p>
-<!-- /#timerTxt -->
 
 <div class="container">
 	<div id="stage">
-		
+		<div class="stageinner">
+			
 	<p class="word"></p>
-	<!-- /.word -->
+	<p class="word_label"></p>
+			
+		</div>
+		<!-- /.stageinner -->
 
 	</div>
-	<!-- /.stage -->
-
-
-
-
-
-
 </div>
 <!-- /.container -->
 
 
 <div id="overlay">
 	<div class="inner">
-		<p class="btn">ゲームスタート！</p>
-
+		<p class="btn">タイピングスタート</p>
+		<p class="miss"></p>
+		<p class="timeScore"></p>
+		<p class="evaluation"></p>
+		<p class="overtime"></p>
 		<p class="restart">もう一度</p>
-
 	</div>
 	<!-- /.inner -->
 </div>
 <!-- /#overlay -->
 
-
 <script src="./js/jquery.js"></script>
-
-<script src="./js/app.js"></script>	
+<script src="./js/app.js?575645667867"></script>	
 </body>
 </html>
