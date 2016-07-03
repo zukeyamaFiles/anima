@@ -65,6 +65,7 @@ gulp.task('jade', function () {
       .pipe(plumber())
       .pipe(jade({
             pretty: true,
+            data: {"parts": 8}
       }))
       .pipe(gulp.dest("./html"))//注2
 });
@@ -100,6 +101,7 @@ gulp.task('babel', function() {
 gulp.task('watch', function() {
   gulp.watch('./es6/*.js', ['babel'])
   gulp.watch('./scss/*.scss', ['sass'])
+  gulp.watch('./temp/*.jade', ['jade'])
 });
 
 gulp.task('default', ['watch']);
