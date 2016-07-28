@@ -12,6 +12,8 @@ var defaults = {
     trigger: "[data-roll='js-toggleTrigger']",
     container: ".toggleBox",
     hidden: true,
+    eventType: "click",
+    animation: "slideToggle",
     callback: function(){}
 };
 
@@ -22,9 +24,9 @@ var eventTrigger = $(this).find(toggleSlide.setting.trigger),
     if(toggleSlide.setting.hidden) {
         toggleContainer.addClass(toggleSlide.setting.className);
     }
-    eventTrigger.on("click",function(e) {
+    eventTrigger.on(toggleSlide.setting.eventType,function(e) {
         e.stopPropagation();
-        toggleContainer.not(":animated").slideToggle(toggleSlide.setting.duration,toggleSlide.setting.callback);
+        toggleContainer.not(":animated")[toggleSlide.setting.animation](toggleSlide.setting.duration,toggleSlide.setting.callback);
         return false;
     });
 }
