@@ -89,12 +89,19 @@ gulp.task('json-temp', function() {
     }
 });
 
-
+var getFolders = function(dir_path) {
+  return fs.readdirSync(dir_path).filter(function(file) {
+    return fs.statSync(path.join(dir_path, file)).isDirectory();
+  });
+};
 var path = require('path');
 var fs   = require('fs');
 var folders = getFolders('./app/img/sprite/');
+
+
 var option = [".png",".jpg"];
 gulp.task('sprite', function() {
+  console.log(folders);
     folders.forEach(function(folder){
         var spriteData = gulp.src('./app/img/sprite/'+ folder +'/*' + option[0])
             .pipe(spritesmith({
