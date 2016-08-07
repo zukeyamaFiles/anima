@@ -184,5 +184,6 @@ html,body,.container {
 
 .addColor {
   color: red;
+  @extend %boxBase;
 }
 

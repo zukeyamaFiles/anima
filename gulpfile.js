@@ -90,7 +90,29 @@ gulp.task('json-temp', function() {
 });
 
 
+var path = require('path');
+var fs   = require('fs');
+var folders = getFolders('./app/img/sprite/');
+var option = [".png",".jpg"];
+gulp.task('sprite', function() {
+    folders.forEach(function(folder){
+        var spriteData = gulp.src('./app/img/sprite/'+ folder +'/*' + option[0])
+            .pipe(spritesmith({
+                imgName: 'sprite'+option[0],                        // スプライト画像
+                cssName: '_sprite.scss',                      // 生成される CSS テンプレート
+                imgPath: './img/sprite'+option[0], // 生成される CSS テンプレートに記載されるスプライト画像パス
+                cssFormat: 'scss',                            // フォーマット拡張子
+                cssVarMap: function(sprite) {
+                    sprite.name = "sprite-" + sprite.name;      // 生成される CSS テンプレートに変数の一覧を記述
+                }
+        }));
+        spriteData.img
+            .pipe(gulp.dest('./public/assets/images/'+ folder));     // imgName で指定したスプライト画像の保存先
+        return spriteData.css
+            .pipe(gulp.dest('./app/styles/commons'+ folder));    
 
+    });
+});
 gulp.task('babel', function() {
   gulp.src('./es6/*.js')
     .pipe(plumber())

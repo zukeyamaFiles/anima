@@ -70,3 +70,8 @@ $set-prefix:  -webkit- , -moz- , -ms- , '';
 	left: #{$miki};
 	margin-top: #{$num};
 }
+
+%boxBase {
+  padding: 15px;
+  border: 1px solid #999;
+}
